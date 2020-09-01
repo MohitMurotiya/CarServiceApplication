@@ -27,4 +27,10 @@ router.patch(
   [checkAuth.verifyToken, checkAuth.isAdmin],
   CarController.updateCar
 );
+
+router.delete(
+  "/deleteCar/:carId",
+  [checkAuth.verifyToken, checkAuth.isAdmin],
+  CarController.deleteCar
+);
 module.exports = router;

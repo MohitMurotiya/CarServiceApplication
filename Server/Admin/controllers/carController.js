@@ -138,10 +138,28 @@ exports.updateCar = (req, res) => {
     .exec()
     .then((response) => {
       console.log("Updated Successfully");
-      res.status(200).json(response);
+      res.status(200).json({
+        message: "Car Updated Successfully",
+      });
     })
     .catch((err) => {
       console.log("Update Car Error: " + err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
+
+exports.deleteCar = (req, res) => {
+  CarModel.deleteOne({ _id: req.params.carId })
+    .exec()
+    .then((result) => {
+      res.status(200).json({
+        message: "Car deleted Successfully",
+      });
+    })
+    .catch((err) => {
+      console.log("Delete Car: " + err);
       res.status(500).json({
         error: err,
       });

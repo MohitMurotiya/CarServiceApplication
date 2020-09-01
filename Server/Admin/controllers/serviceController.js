@@ -44,11 +44,12 @@ exports.findAll = (req, res) => {
         });
       } else {
         res.status(200).json({
-          services: response.map((service) => {
-            return {
-              service,
-            };
-          }),
+          service: response,
+          // services: response.map((service) => {
+          //   return {
+          //     service,
+          //   };
+          // }),
         });
       }
     })
@@ -68,7 +69,6 @@ exports.updateService = (req, res) => {
       console.log("Updated Service Successfully: " + response);
       res.status(200).json({
         message: " Service Updated Successfully",
-        response,
       });
     })
     .catch((err) => {
