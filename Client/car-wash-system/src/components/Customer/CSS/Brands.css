@@ -1,0 +1,66 @@
+.brand {
+  text-align: center;
+  width: 98%;
+  padding: 6px 31px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 6px 5px 5px;
+}
+
+.grid_container {
+  flex-grow: 1;
+  display: flex;
+  width: 75.6%;
+  margin: auto;
+}
+
+.title {
+  margin-bottom: 50px;
+  padding: 0.75em;
+  border: 1px #ddd solid;
+}
+
+.card {
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  text-transform: uppercase;
+  transition: all 1s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.text {
+  font-size: xx-large;
+}
+
+.search {
+  width: 74%;
+  margin: 35px auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: hsla(0, 0%, 80%, 0.15);
+  border-radius: 5px;
+  box-sizing: inherit;
+  display: flex;
+}
+
+.searchIcon {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.searchInput {
+  width: 98%;
+  padding: 31px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-right: 20px;
+  vertical-align: baseline;
+  overflow: visible;
+}

@@ -1,0 +1,34 @@
+.container {
+  margin-top: 120px;
+}
+
+.action_buttons {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  width: 100%;
+  display: flex;
+  box-sizing: inherit;
+}
+
+.timeline {
+  text-align: left;
+  width: 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.buy_button {
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px 0px #ddd;
+  color: #fff;
+  cursor: pointer;
+  background-color: #cd2f2a;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-color: #cd2f2a;
+  width: 50%;
+  right: 10px;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  margin-left: 100px;
+}
