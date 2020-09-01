@@ -1,0 +1,19 @@
+.login__form {
+  margin-top: 120px;
+}
+
+.login__button {
+  margin-top: 25px;
+}
+
+.login__grid {
+  margin-top: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.link {
+  cursor: pointer;
+}
