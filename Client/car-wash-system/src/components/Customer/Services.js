@@ -8,9 +8,6 @@ import Package from "../../services/member/package/package_services";
 import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
   title: {
     fontSize: 14,
   },
@@ -54,7 +51,7 @@ export default function Services(props) {
     return (
       <Grid item xs={12} sm={12} md={6} lg={6} key={res._id}>
         <Card
-          className={classes.root}
+          className="service_card"
           variant="outlined"
           onClick={() =>
             history.push(`/cust_home/order/car/${car}/service/${res._id}`)
@@ -99,7 +96,7 @@ export default function Services(props) {
     <div className="container">
       <button onClick={() => history.push(`/cust_home`)}>Change Car</button>
       <hr />
-      <Grid container spacing={3} className="grid_container">
+      <Grid container spacing={5} className="grid_container">
         {services.map((res) => getServiceCards(res))}
       </Grid>
     </div>

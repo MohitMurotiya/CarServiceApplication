@@ -39,6 +39,7 @@ function Order(props) {
 
   useEffect(() => {
     const user = AuthService.getCurrentCustomer();
+    console.log(user);
     setUser(user);
 
     getCar();
@@ -52,10 +53,12 @@ function Order(props) {
   const onSubmit = (values) => {
     CustomerService.placeOrder(
       user.userId,
-      car._id,
+      user.name,
+      car.name,
       values.carNumber,
       values.custAddress,
-      service._id
+      service.name,
+      service.price
     )
       .then((response) => {
         enqueueSnackbar(response, {
@@ -70,40 +73,46 @@ function Order(props) {
   return (
     <div className="container">
       <h1 className="summary_title">ORDER SUMMARY</h1>
-      <Card>
+      <Card className="booking_card">
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={6} lg={6}>
-            <h1>Personal Details</h1>
-            <h1>{user.email}</h1>
+            <p className="title_subHeading">PERSONAL DETAILS</p>
+            <h4>Email Id: {user.email}</h4>
+            <h4>Name: {user.name}</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <TextField
-                color="primary"
-                variant="outlined"
-                label="Vehicle Number"
-                name="carNumber"
-                margin="normal"
-                inputRef={register({
-                  required: "Number is Required",
-                })}
-              />
-              {errors.carNumber && (
-                <span className="span">{errors.carNumber.message}</span>
-              )}
-              <br />
-              <TextField
-                color="primary"
-                variant="outlined"
-                label="Address"
-                multiline
-                name="custAddress"
-                margin="normal"
-                inputRef={register({
-                  required: "Address is Required",
-                })}
-              />
-              {errors.custAddress && (
-                <span className="span">{errors.custAddress.message}</span>
-              )}
+              <Grid container spacing={2}>
+                <Grid item xs={6} sm={6} md={6} lg={6}>
+                  <TextField
+                    color="primary"
+                    variant="outlined"
+                    label="Vehicle Number"
+                    name="carNumber"
+                    margin="normal"
+                    inputRef={register({
+                      required: "Number is Required",
+                    })}
+                  />
+                  {errors.carNumber && (
+                    <span className="span">{errors.carNumber.message}</span>
+                  )}
+                </Grid>
+                <Grid item xs={6} sm={6} md={6} lg={6}>
+                  <TextField
+                    color="primary"
+                    variant="outlined"
+                    label="Address"
+                    multiline
+                    name="custAddress"
+                    margin="normal"
+                    inputRef={register({
+                      required: "Address is Required",
+                    })}
+                  />
+                  {errors.custAddress && (
+                    <span className="span">{errors.custAddress.message}</span>
+                  )}
+                </Grid>
+              </Grid>
               <Button
                 type="submit"
                 fullWidth
@@ -116,11 +125,11 @@ function Order(props) {
             </form>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}>
-            <h1>Service Details</h1>
-            <h1>{service.name}</h1>
-            <h3>{service.price}</h3>
-            <h3>{service.timeRequired}</h3>
-            <h1>{car.name}</h1>
+            <p className="title_subHeading">SERVICE DETAILS</p>
+            <h3>Service Name: {service.name}</h3>
+            <h3>Total Price: {service.price}</h3>
+            <h3>Time Required: {service.timeRequired}</h3>
+            <h3>Selected Car: {car.name}</h3>
           </Grid>
         </Grid>
       </Card>

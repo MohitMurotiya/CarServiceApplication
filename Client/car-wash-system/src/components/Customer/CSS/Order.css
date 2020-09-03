@@ -4,7 +4,19 @@
 }
 
 .summary_title {
-  background-color: chartreuse;
+  background-color: purple;
   width: 98%;
   padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+
+.booking_card {
+  padding: 20px;
+}
+
+.title_subHeading {
+  font-size: 24px;
+  text-align: center;
+  text-decoration-line: underline;
 }

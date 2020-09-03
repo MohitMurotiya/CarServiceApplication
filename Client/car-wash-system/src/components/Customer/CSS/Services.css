@@ -32,3 +32,7 @@
   border: 1px solid transparent;
   margin-left: 100px;
 }
+
+.service_card:hover {
+  transform: scale(1.1);
+}

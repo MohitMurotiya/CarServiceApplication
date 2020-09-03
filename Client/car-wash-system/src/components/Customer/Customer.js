@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CustNav from "./CustNav";
 import CustHome from "./CustHome";
-import Cust_Contact from "./Cust_Contact";
 import Cars from "./Cars";
 import Services from "./Services";
 import Login from "../Home/Login";
 import Order from "./Order";
 import MyBookings from "./MyBookings";
+import Contact from "../Home/Contact";
 
 function Cust_Home() {
   return (
@@ -15,7 +15,7 @@ function Cust_Home() {
       <CustNav />
       <Switch>
         <Route exact path="/cust_home" component={CustHome} />
-        <Route path="/cust_home/contact" component={Cust_Contact} />
+        <Route path="/cust_home/contact" component={Contact} />
         <Route
           path="/cust_home/cars/:brand"
           render={(props) => <Cars {...props} />}
