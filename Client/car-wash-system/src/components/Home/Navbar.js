@@ -40,12 +40,6 @@ function Navbar() {
         </NavLink>
         <NavLink
           className={`nav__link ${show && "nav__linkscroll"}`}
-          to="/benefits"
-        >
-          OUR BENEFITS
-        </NavLink>
-        <NavLink
-          className={`nav__link ${show && "nav__linkscroll"}`}
           to="/working"
         >
           HOW IT WORKS

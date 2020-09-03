@@ -1,0 +1,36 @@
+.container {
+  margin-top: 5rem;
+}
+
+.text-center {
+  text-align: center;
+  color: black;
+  width: 100%;
+}
+
+.contact_details {
+  padding-top: 2.25rem;
+  padding-bottom: 3.25rem;
+}
+
+.row_container {
+  align-items: center;
+  margin-right: auto;
+  margin-left: 150px;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 20px;
+}

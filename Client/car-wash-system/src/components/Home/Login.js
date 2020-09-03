@@ -10,13 +10,16 @@ import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import "./Login.css";
+import { useSnackbar } from "notistack";
 
 export default function Login(props) {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { handleSubmit, register, errors } = useForm({
     mode: "onBlur",
   });
   const onSubmit = (values) => {
-    AurhService.login(values.email, values.password).then((respone) => {
+    AurhService.login(values.email, values.password).then((response) => {
+      console.log(response);
       props.history.push("/cust_home");
     });
   };
@@ -37,7 +40,6 @@ export default function Login(props) {
             label="Email Address"
             type="email"
             name="email"
-            autoFocus
             inputRef={register({
               required: "Email is Required",
               pattern: {
@@ -46,7 +48,7 @@ export default function Login(props) {
               },
             })}
           />
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <span className="span">{errors.email.message}</span>}
           <TextField
             variant="outlined"
             margin="normal"
@@ -58,7 +60,9 @@ export default function Login(props) {
               required: "Password is Required",
             })}
           />
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && (
+            <span className="span">{errors.password.message}</span>
+          )}
           <Button className="login__button" type="submit" block color="primary">
             Sign In
           </Button>

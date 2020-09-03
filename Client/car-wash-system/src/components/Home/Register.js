@@ -24,21 +24,20 @@ function Register(props) {
         <h1>REGISTER</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
-            variant="standard"
+            variant="outlined"
             margin="normal"
             fullWidth
             label="Enter Name"
             placeholder="Enter Your Name"
             type="name"
             name="name"
-            autoFocus
             inputRef={register({
               required: "Name is Required",
             })}
           />
-          {errors.name && <span>{errors.name.message}</span>}
+          {errors.name && <span className="span">{errors.name.message}</span>}
           <TextField
-            variant="standard"
+            variant="outlined"
             margin="normal"
             fullWidth
             label="Email Address"
@@ -53,9 +52,9 @@ function Register(props) {
               },
             })}
           />
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <span className="span">{errors.email.message}</span>}
           <TextField
-            variant="standard"
+            variant="outlined"
             margin="normal"
             fullWidth
             label="Password"
@@ -70,7 +69,9 @@ function Register(props) {
               },
             })}
           />
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && (
+            <span className="span">{errors.password.message}</span>
+          )}
           <Button className="login__button" type="submit" block color="primary">
             Sign Up
           </Button>

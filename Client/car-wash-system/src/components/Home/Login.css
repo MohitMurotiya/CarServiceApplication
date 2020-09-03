@@ -17,3 +17,7 @@ h1 {
 .link {
   cursor: pointer;
 }
+
+.span {
+  color: red;
+}
