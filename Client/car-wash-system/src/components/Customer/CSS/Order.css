@@ -1,0 +1,10 @@
+.container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.summary_title {
+  background-color: chartreuse;
+  width: 98%;
+  padding: 5px;
+}

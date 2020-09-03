@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 export default function Services(props) {
   const { match, history } = props;
   const { params } = match;
-  const { brand } = params;
+  const { car } = params;
   const classes = useStyles();
 
   const [services, setServices] = useState([]);
@@ -53,7 +53,13 @@ export default function Services(props) {
     }
     return (
       <Grid item xs={12} sm={12} md={6} lg={6} key={res._id}>
-        <Card className={classes.root} variant="outlined">
+        <Card
+          className={classes.root}
+          variant="outlined"
+          onClick={() =>
+            history.push(`/cust_home/order/car/${car}/service/${res._id}`)
+          }
+        >
           <CardContent>
             <Typography
               className={classes.title}

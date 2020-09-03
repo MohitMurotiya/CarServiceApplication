@@ -6,6 +6,8 @@ import Cust_Contact from "./Cust_Contact";
 import Cars from "./Cars";
 import Services from "./Services";
 import Login from "../Home/Login";
+import Order from "./Order";
+import MyBookings from "./MyBookings";
 
 function Cust_Home() {
   return (
@@ -21,6 +23,14 @@ function Cust_Home() {
         <Route
           path="/cust_home/services/:car"
           render={(props) => <Services {...props} />}
+        />
+        <Route
+          path="/cust_home/order/car/:carId/service/:serviceId"
+          render={(props) => <Order {...props} />}
+        />
+        <Route
+          path="/cust_home/mybookings"
+          render={(props) => <MyBookings {...props} />}
         />
         <Route path="/login" component={Login} />
       </Switch>

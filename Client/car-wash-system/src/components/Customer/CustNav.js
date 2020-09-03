@@ -47,8 +47,11 @@ function CustNav() {
         >
           CONTACT US
         </NavLink>
-        <NavLink className={`nav__link ${show && "nav__linkscroll"}`} to="">
-          MY ORDERS
+        <NavLink
+          className={`nav__link ${show && "nav__linkscroll"}`}
+          to="/cust_home/mybookings"
+        >
+          MY BOOKINGS
         </NavLink>
         <NavLink
           onClick={logout}
