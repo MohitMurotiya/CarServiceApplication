@@ -10,7 +10,9 @@ exports.findMyOrders = (req, res) => {
           message: "No Orders",
         });
       } else {
-        res.send(response);
+        res.status(200).json({
+          orders: response,
+        });
       }
     })
     .catch((err) => {

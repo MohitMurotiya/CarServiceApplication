@@ -8,8 +8,6 @@ class Package {
     return axios
       .get(API_URL + "findAll")
       .then((response) => {
-        console.log(response.data.service);
-
         return response.data.service;
       })
       .catch((err) => {
@@ -66,6 +64,17 @@ class Package {
       })
       .then((res) => {
         return res.data.status;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  findServiceById(id) {
+    return axios
+      .get(API_URL + `findById/${id}`)
+      .then((res) => {
+        return res.data.response;
       })
       .catch((err) => {
         console.log(err);

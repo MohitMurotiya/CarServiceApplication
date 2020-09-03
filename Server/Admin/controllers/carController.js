@@ -106,8 +106,8 @@ exports.findByBrand = (req, res) => {
 };
 
 //FInd Car By Name
-exports.findByCar = (req, res) => {
-  CarModel.findOne({ name: req.body.name })
+exports.findByCarId = (req, res) => {
+  CarModel.findOne({ _id: req.params.carId })
     .exec()
     .then((response) => {
       if (response == null) {
@@ -116,9 +116,7 @@ exports.findByCar = (req, res) => {
         });
       } else {
         return res.status(200).json({
-          name: response.name,
-          _id: response._id,
-          brans: response.brand,
+          response,
         });
       }
     })

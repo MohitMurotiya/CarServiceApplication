@@ -12,7 +12,9 @@ exports.findPlacedOrders = (req, res) => {
           message: "No Orders are available",
         });
       } else {
-        res.send(response);
+        res.status(200).json({
+          orders: response,
+        });
       }
     })
     .catch((err) => {
@@ -34,8 +36,7 @@ exports.updateOrder = (req, res) => {
     .exec()
     .then((response) => {
       res.status(200).json({
-        message: "Updated Successfully",
-        order: response,
+        message: "Order Successfully Assign to Mechanic",
       });
     })
     .catch((err) => {

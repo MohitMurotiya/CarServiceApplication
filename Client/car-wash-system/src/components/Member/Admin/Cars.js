@@ -74,7 +74,7 @@ function Cars() {
         dataDelete.splice(index, 1);
         setCars([...dataDelete]);
         resolve();
-        enqueueSnackbar(res.message, {
+        enqueueSnackbar(res, {
           variant: "success",
         });
       })

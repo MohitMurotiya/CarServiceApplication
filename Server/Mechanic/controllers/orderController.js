@@ -3,7 +3,12 @@ const MemberModel = require("../model/memberModel");
 
 //Find IN-PROCESS Orders
 exports.findInProcessOrders = (req, res) => {
-  OrderModel.find({ mechanicId: req.params.mechId, status: "IN-PROCESS" })
+  OrderModel.find({
+    $or: [
+      { mechanicId: req.params.mechId, status: "IN-PROCESS" },
+      { mechanicId: req.params.mechId, status: "ACCEPTED" },
+    ],
+  })
     .exec()
     .then((response) => {
       if (response.length == 0) {
@@ -11,7 +16,9 @@ exports.findInProcessOrders = (req, res) => {
           message: "No Orders are available",
         });
       } else {
-        res.send(response);
+        res.status(200).json({
+          orders: response,
+        });
       }
     })
     .catch((err) => {
@@ -69,8 +76,7 @@ exports.updateOrder = (req, res) => {
         });
       console.log("Order Updated Successfully");
       res.status(200).json({
-        message: " Order Updated Successfully",
-        response,
+        message: "Request Updated Successfully",
       });
     })
     .catch((err) => {
@@ -81,7 +87,7 @@ exports.updateOrder = (req, res) => {
 
 //Find My Orders
 exports.findMyOrders = (req, res) => {
-  Order.find({ mechanicId: req.params.mechId })
+  OrderModel.find({ mechanicId: req.params.mechId })
     .exec()
     .then((response) => {
       if (response.length == 0) {
@@ -89,7 +95,7 @@ exports.findMyOrders = (req, res) => {
           message: "No Orders are available",
         });
       } else {
-        res.send(response);
+        res.status(200).json({ orders: response });
       }
     })
     .catch((err) => {

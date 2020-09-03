@@ -68,7 +68,7 @@ class CarService {
       })
       .then((res) => {
         console.log(res);
-        return res.data;
+        return res.data.message;
       })
       .catch((err) => {
         console.log(err);
@@ -88,6 +88,17 @@ class CarService {
       )
       .then((response) => {
         return response.data.message;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  findCarById(carId) {
+    return axios
+      .get(API_URL + `findByCar/${carId}`)
+      .then((response) => {
+        return response.data.response;
       })
       .catch((err) => {
         console.log(err);

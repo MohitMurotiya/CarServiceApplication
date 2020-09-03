@@ -11,7 +11,7 @@ class AuthService {
       .post(AUTH_URL + "login", { email, password })
       .then((response) => {
         if (response.data.token) {
-          console.log(response.data.name);
+          console.log(response.data.userId);
           this.authenticated = true;
           localStorage.setItem("customer", JSON.stringify(response.data));
         }
@@ -19,7 +19,8 @@ class AuthService {
         return response.data;
       })
       .catch((err) => {
-        console.log("Login Error" + err);
+        console.log("Login Error: " + err);
+        return err;
       });
   }
 

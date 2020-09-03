@@ -15,7 +15,7 @@ router.get(
   OrderController.findInProcessOrders
 );
 
-router.patch(
+router.get(
   "/findMyOrders/:mechId",
   [checkAuth.verifyToken, checkAuth.isMechanic],
   OrderController.findMyOrders

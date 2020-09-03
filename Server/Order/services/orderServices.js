@@ -5,10 +5,6 @@ const OrderController = require("../controllers/ordersController");
 
 router.post("/addOrder", [checkAuth.verifyToken], OrderController.addOrder);
 
-router.get(
-  "/findCompltedOrders",
-  [checkAuth.verifyToken],
-  OrderController.findCompltedOrders
-);
+router.get("/findCompltedOrders", OrderController.findCompltedOrders);
 
 module.exports = router;

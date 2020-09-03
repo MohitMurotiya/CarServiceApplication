@@ -26,7 +26,7 @@ exports.findAvailable = (req, res) => {
 //FInd All Mechanics
 exports.findAll = (req, res) => {
   Member.find()
-    .select("name email mobile")
+    .select("name email mobile status")
     .exec()
     .then((response) => {
       if (response.length == 0) {

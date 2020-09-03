@@ -45,11 +45,6 @@ exports.findAll = (req, res) => {
       } else {
         res.status(200).json({
           service: response,
-          // services: response.map((service) => {
-          //   return {
-          //     service,
-          //   };
-          // }),
         });
       }
     })
@@ -88,6 +83,28 @@ exports.deleteService = (req, res) => {
     })
     .catch((err) => {
       console.log("Service Delete Error: " + err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
+
+exports.findByServiceId = (req, res) => {
+  ServiceModel.findOne({ _id: req.params.serviceId })
+    .exec()
+    .then((response) => {
+      if (response == null) {
+        return res.status(404).json({
+          message: "This Service is Not available",
+        });
+      } else {
+        return res.status(200).json({
+          response,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log("Find By Service Error: " + err);
       res.status(500).json({
         error: err,
       });

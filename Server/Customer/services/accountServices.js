@@ -9,11 +9,7 @@ router.get(
   AccountController.getAllCustomers
 );
 
-router.get(
-  "/findCustById/:custId",
-  [checkAuth.verifyToken, checkAuth.isCustomer],
-  AccountController.findCustById
-);
+router.get("/findCustById/:custId", AccountController.findCustById);
 
 router.patch(
   "/updateProfile/:custId",

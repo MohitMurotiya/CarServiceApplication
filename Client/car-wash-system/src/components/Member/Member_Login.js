@@ -15,7 +15,11 @@ export default function Member_Login(props) {
   });
   const onSubmit = (values) => {
     AurhService.login(values.email, values.password).then((respone) => {
-      props.history.push("/admin_home");
+      if (respone.role === "ADMIN") {
+        props.history.push("/admin_home");
+      } else {
+        props.history.push("/mechanic_home");
+      }
     });
   };
   return (
@@ -43,7 +47,7 @@ export default function Member_Login(props) {
               },
             })}
           />
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <span className="span">{errors.email.message}</span>}
           <TextField
             variant="outlined"
             margin="normal"
@@ -55,7 +59,9 @@ export default function Member_Login(props) {
               required: "Password is Required",
             })}
           />
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && (
+            <span className="span">{errors.password.message}</span>
+          )}
           <Button className="login__button" type="submit" block color="primary">
             Sign In
           </Button>

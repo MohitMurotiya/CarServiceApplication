@@ -11,6 +11,7 @@ router.post(
 
 router.get("/findAll", ServiceController.findAll);
 
+router.get("/findById/:serviceId", ServiceController.findByServiceId);
 router.patch(
   "/updateService/:serviceId",
   [checkAuth.verifyToken, checkAuth.isAdmin],

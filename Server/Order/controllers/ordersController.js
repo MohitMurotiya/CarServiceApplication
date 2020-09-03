@@ -4,11 +4,12 @@ const Order = require("../model/orderModel");
 exports.addOrder = (req, res) => {
   const order = new Order({
     customerId: req.body.customerId,
-    carId: req.body.carId,
+    customerName: req.body.customerName,
+    carName: req.body.carName,
     carNumber: req.body.carNumber,
     custAddress: req.body.custAddress,
-    serviceId: req.body.serviceId,
-    washerId: req.body.washerId,
+    serviceName: req.body.serviceName,
+    servicePrice: req.body.servicePrice,
   });
   order
     .save()
@@ -16,7 +17,7 @@ exports.addOrder = (req, res) => {
       console.log("Order Placed: " + result);
       res.status(201).json({
         message: "Order Succesfully Placed",
-        yourOrder: result,
+        result,
       });
     })
     .catch((err) => {
@@ -37,7 +38,9 @@ exports.findCompltedOrders = (req, res) => {
           message: "No Orders are available",
         });
       } else {
-        res.send(response);
+        res.status(200).json({
+          orders: response,
+        });
       }
     })
     .catch((err) => {

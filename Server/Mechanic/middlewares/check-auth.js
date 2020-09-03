@@ -14,7 +14,7 @@ verifyToken = (req, res, next) => {
     const decoded = jwt.verify(token, authConfig.secretKey);
     //req.userData = decoded;
     req.userId = decoded.userId;
-    console.log(decoded.userId);
+    //console.log(decoded.userId);
     next();
   } catch (error) {
     return res.status(401).json({
