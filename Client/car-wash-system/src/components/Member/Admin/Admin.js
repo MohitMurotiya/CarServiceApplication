@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminNav from "./AdminNav";
 import { Switch, Route } from "react-router-dom";
 import AdminHome from "./AdminHome";
@@ -6,8 +6,15 @@ import Cars from "./Cars";
 import Services from "./Services";
 import Mechanic from "./Mechanic";
 import Orders from "./Order";
+import AuthService from "../../../services/member/auth_service";
 
-function Admin() {
+function Admin(props) {
+  useEffect(() => {
+    const admin = AuthService.getAdmin();
+    if (admin === null) {
+      props.history.push("/login");
+    }
+  }, []);
   return (
     <div>
       <AdminNav />

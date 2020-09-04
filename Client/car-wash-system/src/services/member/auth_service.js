@@ -63,6 +63,10 @@ class AuthService {
   getCurrentMechanic() {
     return JSON.parse(localStorage.getItem("mechanic"));
   }
+
+  getAdmin() {
+    return JSON.parse(localStorage.getItem("admin"));
+  }
 }
 
 export default new AuthService();

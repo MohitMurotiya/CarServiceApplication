@@ -41,6 +41,8 @@ function Orders() {
   const dynamicMechanicsLookUp = {
     "5f4481fae2fd8a20782f6d82": "Mechanic 1",
     "5f448212e2fd8a20782f6d83": "Mechanic 2",
+    "5f448222e2fd8a20782f6d84": "Mechanic 3",
+    "5f4dde667a82de39880f577c": "Mechanic 4",
   };
   const [columns, setColumns] = useState([
     { title: "OrderId", field: "_id", editable: "never" },

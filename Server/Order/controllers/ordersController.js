@@ -16,7 +16,7 @@ exports.addOrder = (req, res) => {
     .then((result) => {
       console.log("Order Placed: " + result);
       res.status(201).json({
-        message: "Order Succesfully Placed",
+        message: "Thank you for your order.",
         result,
       });
     })

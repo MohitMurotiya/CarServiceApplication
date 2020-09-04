@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CustNav from "./CustNav";
 import CustHome from "./CustHome";
@@ -8,15 +8,23 @@ import Login from "../Home/Login";
 import Order from "./Order";
 import MyBookings from "./MyBookings";
 import Contact from "../Home/Contact";
+import AuthService from "../../services/customer/authentication/auth_service";
 
-function Cust_Home() {
+function Cust_Home(props) {
+  useEffect(() => {
+    const user = AuthService.getCurrentCustomer();
+    if (user === null) {
+      props.history.push("/login");
+    }
+  }, []);
   return (
     <div>
       <CustNav />
       <Switch>
         <Route exact path="/cust_home" component={CustHome} />
-        <Route path="/cust_home/contact" component={Contact} />
+        <Route exact path="/cust_home/contact" component={Contact} />
         <Route
+          exact
           path="/cust_home/cars/:brand"
           render={(props) => <Cars {...props} />}
         />
