@@ -1,4 +1,4 @@
-<h1 align="center">On-Demand Car Service Application</h1>
+# On-Demand Car Service Application
 
 ## ▶️ [Demo](https://youtu.be/bNtYqpdhYRc)
 
