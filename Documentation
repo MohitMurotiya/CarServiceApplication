@@ -1,0 +1,30 @@
+
+SERVICES FOR EACH ROLE
+
+CUSTOMERS:
+
+1. Sign-Up/Login
+2. Choose a CAR from Car Categories/ Enter Car Details: Enter car details like make, model name, year, color and other details to pick the right car wash service.
+3. Custom Pricing: The feature lets users choose plans from deluxe or premium car wash services as per their car & range.
+4. Add-ons Services: Besides the fixed package services, customers can avail additional services by adding them from Add-ons services, if they want.
+5. Payment Summary: Users can get immediate payment summary for the services received.
+6. Book-A-Wash
+7. Wash Status: Get the update of car’s wash status: done, in progress or in queue.
+8. My Washes: Users can view the timeline of all car washes that they have carried out
+
+WASHERS: 
+
+1. Login
+2. Wash Request: Wash Request is sent to the washer along with the user details. The washer can either accept or decline the request..
+3. Profile: Washers can view and update their profile information.
+4. My Orders: Washers can also view their past and current orders
+
+ADMIN: 
+
+1. Washer Management: Add/Edit Washer Details
+2. Car Management: Add/Edit Car Details
+3. Service Plan Management: Add/Edit Plans and Service Add-ons
+4. Order Management: View Order Details and assign pending requests to washers
+5. Report Management: Admin can generate and filter reports based on orders, washers, dates
+
+
