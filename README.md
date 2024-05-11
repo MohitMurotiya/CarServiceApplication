@@ -69,9 +69,9 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 - Start the server of all Microservices.
 
 ```bash
-  node Server.js
+  node server.js
 ```
 
-- For the ADMIN access you need to insert a record mannually in the members database as a role ADMIN. 
+- For the ADMIN access you need to insert a record manually in the members database as a role ADMIN. 
 
 
