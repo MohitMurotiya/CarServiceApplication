@@ -19,8 +19,17 @@ export default function Login(props) {
   });
   const onSubmit = (values) => {
     AurhService.login(values.email, values.password).then((response) => {
-      console.log(response);
-      props.history.push("/cust_home");
+      //console.log(response);
+      if (response.userId == null) {
+        enqueueSnackbar(response.message, {
+          variant: "error",
+        });
+      } else {
+        props.history.push("/cust_home");
+        enqueueSnackbar(response.message, {
+          variant: "success",
+        });
+      }
     });
   };
   return (

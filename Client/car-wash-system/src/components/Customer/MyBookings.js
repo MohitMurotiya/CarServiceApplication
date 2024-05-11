@@ -2,10 +2,26 @@ import React, { useEffect, useState } from "react";
 import CustomerService from "../../services/customer/customer_service";
 import AuthService from "../../services/customer/authentication/auth_service";
 import "./CSS/MyBookings.css";
-import { Card, Grid, CardContent } from "@material-ui/core";
+import { Card, Grid, CardContent, Box } from "@material-ui/core";
+import Rating from "@material-ui/lab/Rating";
+
+const labels = {
+  0.5: "Useless",
+  1: "Useless+",
+  1.5: "Poor",
+  2: "Poor+",
+  2.5: "Ok",
+  3: "Ok+",
+  3.5: "Good",
+  4: "Good+",
+  4.5: "Excellent",
+  5: "Excellent+",
+};
 
 function MyBookings() {
   const [orders, setorders] = useState([]);
+  const [value, setValue] = useState(0);
+  const [hover, setHover] = useState(-1);
 
   useEffect(() => {
     const user = AuthService.getCurrentCustomer();
@@ -30,6 +46,27 @@ function MyBookings() {
             <h4>Address: {order.custAddress}</h4>
             <h4>Service Name: {order.serviceName}</h4>
             <h4>Service Price: {order.servicePrice}</h4>
+
+            {order.status === "COMPLETED" ? (
+              <div className="ratings">
+                <Rating
+                  name="hover-feedback"
+                  value={value}
+                  precision={0.5}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                  onChangeActive={(event, newHover) => {
+                    setHover(newHover);
+                  }}
+                />
+                {value !== null && (
+                  <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
+                )}
+              </div>
+            ) : (
+              <div></div>
+            )}
           </CardContent>
         </Card>
       </Grid>

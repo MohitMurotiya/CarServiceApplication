@@ -38,7 +38,7 @@ exports.register = (req, res, next) => {
                 console.log(result);
                 res.status(201).json({
                   message: "Registered Successfully",
-                  user: result,
+                  userId: result._id,
                 });
               })
               .catch((err) => {

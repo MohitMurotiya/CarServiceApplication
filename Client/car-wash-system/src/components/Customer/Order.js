@@ -72,67 +72,71 @@ function Order(props) {
 
   return (
     <div className="container">
-      <h1 className="summary_title">ORDER SUMMARY</h1>
-      <Card className="booking_card">
+      <h2>ORDER SUMMARY</h2>
+      <div className="booking_card">
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={6} lg={6}>
-            <p className="title_subHeading">PERSONAL DETAILS</p>
-            <h4>Email Id: {user.email}</h4>
-            <h4>Name: {user.name}</h4>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Grid container spacing={2}>
-                <Grid item xs={6} sm={6} md={6} lg={6}>
-                  <TextField
-                    color="primary"
-                    variant="outlined"
-                    label="Vehicle Number"
-                    name="carNumber"
-                    margin="normal"
-                    inputRef={register({
-                      required: "Number is Required",
-                    })}
-                  />
-                  {errors.carNumber && (
-                    <span className="span">{errors.carNumber.message}</span>
-                  )}
+            <Card>
+              <p className="title_subHeading">PERSONAL DETAILS</p>
+              <h4>Email Id: {user.email}</h4>
+              <h4>Name: {user.name}</h4>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Grid container spacing={2}>
+                  <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <TextField
+                      color="primary"
+                      variant="outlined"
+                      label="Vehicle Number"
+                      name="carNumber"
+                      margin="normal"
+                      inputRef={register({
+                        required: "Number is Required",
+                      })}
+                    />
+                    {errors.carNumber && (
+                      <span className="span">{errors.carNumber.message}</span>
+                    )}
+                  </Grid>
+                  <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <TextField
+                      color="primary"
+                      variant="outlined"
+                      label="Address"
+                      multiline
+                      name="custAddress"
+                      margin="normal"
+                      inputRef={register({
+                        required: "Address is Required",
+                      })}
+                    />
+                    {errors.custAddress && (
+                      <span className="span">{errors.custAddress.message}</span>
+                    )}
+                  </Grid>
                 </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6}>
-                  <TextField
-                    color="primary"
-                    variant="outlined"
-                    label="Address"
-                    multiline
-                    name="custAddress"
-                    margin="normal"
-                    inputRef={register({
-                      required: "Address is Required",
-                    })}
-                  />
-                  {errors.custAddress && (
-                    <span className="span">{errors.custAddress.message}</span>
-                  )}
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className=""
-              >
-                PLACE ORDER
-              </Button>
-            </form>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className=""
+                >
+                  PLACE ORDER
+                </Button>
+              </form>
+            </Card>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}>
-            <p className="title_subHeading">SERVICE DETAILS</p>
-            <h3>Service Name: {service.name}</h3>
-            <h3>Total Price: {service.price}</h3>
-            <h3>Time Required: {service.timeRequired}</h3>
-            <h3>Selected Car: {car.name}</h3>
+            <Card>
+              <p className="title_subHeading">SERVICE DETAILS</p>
+              <h3>Service Name: {service.name}</h3>
+              <h3>Total Price: {service.price}</h3>
+              <h3>Time Required: {service.timeRequired}</h3>
+              <h3>Selected Car: {car.name}</h3>
+            </Card>
           </Grid>
         </Grid>
-      </Card>
+      </div>
     </div>
   );
 }

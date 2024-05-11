@@ -8,6 +8,7 @@ import Member_Login from "../Member/Member_Login";
 import Contact from "./Contact";
 import Working from "./Working";
 import Footer from "./Footer";
+import FAQ from "./FAQ";
 
 function Home() {
   return (
@@ -15,12 +16,13 @@ function Home() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={WhyUs} />
-        <Route exact path="/whyus" component={WhyUs} />
-        <Route exact path="/working" component={Working} />
-        <Route exact path="/contact" component={Contact} />
+        <Route path="/whyus" component={WhyUs} />
+        <Route path="/working" component={Working} />
+        <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/member_login" component={Member_Login} />
+        <Route path="/faqs" component={FAQ} />
       </Switch>
       <Footer />
     </Router>

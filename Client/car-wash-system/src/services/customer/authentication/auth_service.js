@@ -11,7 +11,7 @@ class AuthService {
       .post(AUTH_URL + "login", { email, password })
       .then((response) => {
         if (response.data.token) {
-          console.log(response.data.userId);
+          //console.log(response.data.userId);
           this.authenticated = true;
           localStorage.setItem("customer", JSON.stringify(response.data));
         }
@@ -19,8 +19,8 @@ class AuthService {
         return response.data;
       })
       .catch((err) => {
-        console.log("Login Error: " + err);
-        return err;
+        //console.log("Login Error: " + err.response.data.message);
+        return err.response.data;
       });
   }
 
@@ -31,11 +31,18 @@ class AuthService {
   }
 
   register(name, email, password) {
-    return axios.post(AUTH_URL + "register", {
-      name,
-      email,
-      password,
-    });
+    return axios
+      .post(AUTH_URL + "register", {
+        name,
+        email,
+        password,
+      })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((err) => {
+        return err.response.data;
+      });
   }
 
   isAuthenticated() {

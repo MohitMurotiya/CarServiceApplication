@@ -6,15 +6,26 @@ import Container from "@material-ui/core/Container";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import AurhService from "../../services/customer/authentication/auth_service";
+import { useSnackbar } from "notistack";
 
 function Register(props) {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { handleSubmit, register, errors } = useForm({
     mode: "onBlur",
   });
   const onSubmit = (values) => {
     AurhService.register(values.name, values.email, values.password).then(
-      (respone) => {
-        props.history.push("/login");
+      (response) => {
+        if (response.userId != null) {
+          enqueueSnackbar(response.message, {
+            variant: "success",
+          });
+          props.history.push("/login");
+        } else {
+          enqueueSnackbar(response.message, {
+            variant: "error",
+          });
+        }
       }
     );
   };
@@ -28,7 +39,6 @@ function Register(props) {
             margin="normal"
             fullWidth
             label="Enter Name"
-            placeholder="Enter Your Name"
             type="name"
             name="name"
             inputRef={register({
@@ -43,7 +53,6 @@ function Register(props) {
             label="Email Address"
             type="email"
             name="email"
-            placeholder="Enter Your Email"
             inputRef={register({
               required: "Email is Required",
               pattern: {
@@ -60,7 +69,6 @@ function Register(props) {
             label="Password"
             type="password"
             name="password"
-            placeholder="Enter Password"
             inputRef={register({
               required: "Password is Required",
               minLength: {

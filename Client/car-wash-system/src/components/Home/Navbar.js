@@ -46,6 +46,12 @@ function Navbar() {
         </NavLink>
         <NavLink
           className={`nav__link ${show && "nav__linkscroll"}`}
+          to="/faqs"
+        >
+          FAQ's
+        </NavLink>
+        <NavLink
+          className={`nav__link ${show && "nav__linkscroll"}`}
           to="/contact"
         >
           CONTACT US

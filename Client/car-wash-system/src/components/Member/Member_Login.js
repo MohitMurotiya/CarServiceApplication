@@ -8,17 +8,29 @@ import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import "../Home/Login.css";
+import { useSnackbar } from "notistack";
 
 export default function Member_Login(props) {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { handleSubmit, register, errors } = useForm({
     mode: "onBlur",
   });
   const onSubmit = (values) => {
-    AurhService.login(values.email, values.password).then((respone) => {
-      if (respone.role === "ADMIN") {
+    AurhService.login(values.email, values.password).then((response) => {
+      if (response.role === "ADMIN") {
+        enqueueSnackbar(response.message, {
+          variant: "success",
+        });
         props.history.push("/admin_home");
-      } else {
+      } else if (response.role === "MECHANIC") {
+        enqueueSnackbar(response.message, {
+          variant: "success",
+        });
         props.history.push("/mechanic_home");
+      } else {
+        enqueueSnackbar(response.message, {
+          variant: "error",
+        });
       }
     });
   };
