@@ -1,4 +1,4 @@
 module.exports = {
-  PASSWORD: "root",
-  DBNAME: "CarWashSystem",
+  PASSWORD: "db_password",
+  DBNAME: "db_name",
 };
