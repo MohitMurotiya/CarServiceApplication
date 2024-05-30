@@ -7,6 +7,7 @@ import Services from "./Services";
 import Mechanic from "./Mechanic";
 import Orders from "./Order";
 import AuthService from "../../../services/member/auth_service";
+import Products from "./Products";
 
 function Admin(props) {
   useEffect(() => {
@@ -23,6 +24,7 @@ function Admin(props) {
         {/* <Route exact path="/admin_home" component={AdminHome} /> */}
         <Route path="/admin_home/cars" component={Cars} />
         <Route path="/admin_home/packages" component={Services} />
+        <Route path="/admin_home/products" component={Products} />
         <Route path="/admin_home/mechanics" component={Mechanic} />
         <Route path="/admin_home/orders" component={Orders} />
       </Switch>

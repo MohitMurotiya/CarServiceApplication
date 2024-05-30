@@ -43,15 +43,21 @@ function CustNav() {
         </NavLink>
         <NavLink
           className={`nav__link ${show && "nav__linkscroll"}`}
-          to="/cust_home/contact"
+          to="/cust_home/products"
         >
-          CONTACT US
+          PRODUCTS
         </NavLink>
         <NavLink
           className={`nav__link ${show && "nav__linkscroll"}`}
           to="/cust_home/mybookings"
         >
           MY BOOKINGS
+        </NavLink>
+        <NavLink
+          className={`nav__link ${show && "nav__linkscroll"}`}
+          to="/cust_home/contact"
+        >
+          CONTACT US
         </NavLink>
         <NavLink
           onClick={logout}

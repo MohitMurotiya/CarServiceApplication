@@ -33,6 +33,11 @@ function AdminHome(props) {
       onClick: () => history.push("/admin_home/cars"),
     },
     {
+      text: "Products",
+      icon: <DriveEtaIcon />,
+      onClick: () => history.push("/admin_home/products"),
+    },
+    {
       text: "Services",
       icon: <BallotIcon />,
       onClick: () => history.push("/admin_home/packages"),

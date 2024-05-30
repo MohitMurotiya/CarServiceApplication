@@ -4,6 +4,8 @@ import CustNav from "./CustNav";
 import CustHome from "./CustHome";
 import Cars from "./Cars";
 import Services from "./Services";
+import Products from "./Products";
+import Category from "./Category";
 import Login from "../Home/Login";
 import Order from "./Order";
 import MyBookings from "./MyBookings";
@@ -31,6 +33,12 @@ function Cust_Home(props) {
         <Route
           path="/cust_home/services/:car"
           render={(props) => <Services {...props} />}
+        />
+        <Route exact path="/cust_home/products" component={Category} />
+        <Route
+          exact
+          path="/cust_home/products/:category"
+          render={(props) => <Products {...props} />}
         />
         <Route
           path="/cust_home/order/car/:carId/service/:serviceId"

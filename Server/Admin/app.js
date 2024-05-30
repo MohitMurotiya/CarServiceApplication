@@ -9,6 +9,7 @@ const carRoutes = require("./services/carServices");
 const serviceRoutes = require("./services/car-washServices");
 const orderRoutes = require("./services/orderServices");
 const mechanicRoutes = require("./services/mechanicServices");
+const productRoutes = require("./services/car-products.js");
 
 var corsOptions = {
   origin: "http://localhost:3000",
@@ -54,6 +55,7 @@ app.use("/admin/car-func", carRoutes);
 app.use("/admin/car-services", serviceRoutes);
 app.use("/admin/order", orderRoutes);
 app.use("/admin/mechanic", mechanicRoutes);
+app.use("/admin/car-products", productRoutes);
 
 //Server Side Error Handling
 app.use((req, res, next) => {
